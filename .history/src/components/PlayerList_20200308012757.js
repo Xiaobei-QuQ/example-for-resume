@@ -59,7 +59,7 @@ PlayerList.propTypes = {
 
 const mapStateToProp = state => {
   return {
-    visible: state.playerlist.visible
+    visible: state.playerList.visible
   };
 };
 export default connect(mapStateToProp)(PlayerList);

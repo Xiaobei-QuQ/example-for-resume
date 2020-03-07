@@ -57,9 +57,9 @@ PlayerList.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-const mapStateToProp = state => {
+const mapStateToProp = (state = () => {
   return {
-    visible: state.playerlist.visible
+    visible: state.playerList.visible
   };
-};
+});
 export default connect(mapStateToProp)(PlayerList);

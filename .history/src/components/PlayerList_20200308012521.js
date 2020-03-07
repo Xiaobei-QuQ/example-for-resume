@@ -3,22 +3,19 @@ import PropTypes from "prop-types";
 import styles from "./PlayerList.css";
 import PlayerListItem from "./PlayerListItem";
 import { Pagination } from "antd";
-import { connect } from "react-redux";
 
 const PlayerList = props => {
-  const { players, visible } = props;
+  const { players } = props;
   const [current, setCurrent] = useState(1);
   const [data, setData] = useState([]);
   const total = players.length;
 
-  useEffect(() => {
-    console.log(players, current);
-    setData(players.slice((current - 1) * 5, current * 5));
-  }, [players, current]);
+
 
   useEffect(() => {
-    setCurrent(1);
-  }, [visible]);
+    console.log(players,current)
+    setData(players.slice((current - 1) * 5, current * 5));
+  }, [players, current]);
 
   const onChange = value => {
     setCurrent(value);
@@ -57,9 +54,4 @@ PlayerList.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-const mapStateToProp = state => {
-  return {
-    visible: state.playerlist.visible
-  };
-};
-export default connect(mapStateToProp)(PlayerList);
+export default connect(mapState)PlayerList;
